@@ -1,0 +1,5 @@
+D:\Dotnet\Labs\SSI.StudentManagement\SSI.StudentManagement\SSI.ManagementStudio.Common\bin\Debug\SSI.ManagementStudio.Common.dll
+D:\Dotnet\Labs\SSI.StudentManagement\SSI.StudentManagement\SSI.ManagementStudio.Common\bin\Debug\SSI.ManagementStudio.Common.pdb
+D:\Dotnet\Labs\SSI.StudentManagement\SSI.StudentManagement\SSI.ManagementStudio.Common\obj\Debug\SSI.ManagementStudio.Common.csprojResolveAssemblyReference.cache
+D:\Dotnet\Labs\SSI.StudentManagement\SSI.StudentManagement\SSI.ManagementStudio.Common\obj\Debug\SSI.ManagementStudio.Common.dll
+D:\Dotnet\Labs\SSI.StudentManagement\SSI.StudentManagement\SSI.ManagementStudio.Common\obj\Debug\SSI.ManagementStudio.Common.pdb

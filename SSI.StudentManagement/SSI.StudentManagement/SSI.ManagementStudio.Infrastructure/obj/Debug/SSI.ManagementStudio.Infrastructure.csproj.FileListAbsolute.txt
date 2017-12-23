@@ -1,0 +1,5 @@
+D:\Dotnet\Labs\SSI.StudentManagement\SSI.StudentManagement\SSI.ManagementStudio.Infrastructure\bin\Debug\SSI.ManagementStudio.Infrastructure.dll
+D:\Dotnet\Labs\SSI.StudentManagement\SSI.StudentManagement\SSI.ManagementStudio.Infrastructure\bin\Debug\SSI.ManagementStudio.Infrastructure.pdb
+D:\Dotnet\Labs\SSI.StudentManagement\SSI.StudentManagement\SSI.ManagementStudio.Infrastructure\obj\Debug\SSI.ManagementStudio.Infrastructure.csprojResolveAssemblyReference.cache
+D:\Dotnet\Labs\SSI.StudentManagement\SSI.StudentManagement\SSI.ManagementStudio.Infrastructure\obj\Debug\SSI.ManagementStudio.Infrastructure.dll
+D:\Dotnet\Labs\SSI.StudentManagement\SSI.StudentManagement\SSI.ManagementStudio.Infrastructure\obj\Debug\SSI.ManagementStudio.Infrastructure.pdb
