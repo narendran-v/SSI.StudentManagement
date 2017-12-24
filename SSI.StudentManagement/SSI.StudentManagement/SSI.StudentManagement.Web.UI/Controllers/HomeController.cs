@@ -10,7 +10,7 @@ namespace SSI.StudentManagement.Web.UI.Controllers
     {
         public ActionResult Index()
         {
-            return Redirect("StudentMgmt");
+            return Redirect("~/index.html");
         }
     }
 }
