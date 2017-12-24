@@ -23,11 +23,11 @@
             type: 'on_page_unload'
         });
 
-        $('#page_view').load('public/html/pages/' + e.url + '.html', function () {
+        $('#page_view').load('html/pages/' + e.url + '.html', function () {
             $(function () {
                 $('.lazy').Lazy();
             });
-            $.getScript('public/js/app/pages/' + e.url + '.js', function (d, s, x) {
+            $.getScript('js/app/pages/' + e.url + '.js', function (d, s, x) {
                 if (s == 'success') {
                     $.event.trigger({
                         type: 'on_page_load',
@@ -40,8 +40,8 @@
 
 
     function onOpenPopup(e) {
-        $('#popup_view').load('public/html/popups/' + e.url + '.html', function () {
-            $.getScript('public/js/app/popups/' + e.url + '.js', function (d, s, x) {
+        $('#popup_view').load('html/popups/' + e.url + '.html', function () {
+            $.getScript('js/app/popups/' + e.url + '.js', function (d, s, x) {
                 if (s == 'success') {
                     $('#popup_view').removeClass('hide');
                     $.event.trigger({
@@ -65,8 +65,8 @@
             type: 'on_header_unload',
             message: {}
         });
-        $('#header_container').load('public/html/templates/header.html', function () {
-            $.getScript('public/js/app/templates/header.js', function (d, s, x) {
+        $('#header_container').load('html/templates/' + e.url + '.html', function () {
+            $.getScript('js/app/templates/' + e.url + '.js', function (d, s, x) {
                 if (s == 'success') {
                     $.event.trigger({
                         type: 'on_header_load',
@@ -85,8 +85,8 @@
 
 
     function onFooterLoad(e) {
-        $('#footer_container').load('public/html/templates/footer.html', function () {
-            $.getScript('public/js/app/templates/footer.js', function (d, s, x) {
+        $('#footer_container').load('html/templates/' + e.url + '.html', function () {
+            $.getScript('js/app/templates/' + e.url + '.js', function (d, s, x) {
                 if (s == 'success') {
                     $.event.trigger({
                         type: 'on_footer_load',
@@ -109,11 +109,13 @@
 
     //Header load
     $.event.trigger({
-        type: 'load_header'
+        type: 'load_header',
+        url:'header'
     });
 
     //Footer load
     $.event.trigger({
-        type: 'load_footer'
+        type: 'load_footer',
+        url: 'footer'
     });
 }())

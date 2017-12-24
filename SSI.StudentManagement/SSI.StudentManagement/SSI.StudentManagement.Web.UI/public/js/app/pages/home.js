@@ -18,7 +18,7 @@
     }
 
     function main() {
-        $('h1').html('This text can be changed')
+        //$('h1').html('This text can be changed')
     }
 
     function onOpenPopup(){
@@ -32,6 +32,10 @@
 
     function onPopupClose(data){
         console.log(data);
+        $.event.trigger({
+            type:'unload_header',
+            url:'header'
+        })
     }
 
     function onUnload(e) {
