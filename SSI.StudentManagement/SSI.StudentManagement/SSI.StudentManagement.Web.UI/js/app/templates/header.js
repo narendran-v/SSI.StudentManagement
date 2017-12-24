@@ -1,0 +1,26 @@
+"use strict";
+
+//Page empty sample and template.
+(function () {
+    var sourceData;
+
+    $(document).on('on_header_load', onLoad);
+
+    function onLoad(e) {
+        $(document).off('on_header_load', onLoad);
+        sourceData = e.message;
+        main();
+    }
+
+    function main() {
+        $('#logout_btn').click(onLogout);
+    }
+
+    function onLogout(){
+        $.event.trigger({
+            type:'change_page',
+            url:'login'
+        })
+    }
+    
+}());

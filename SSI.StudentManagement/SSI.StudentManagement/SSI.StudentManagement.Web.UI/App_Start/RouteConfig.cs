@@ -12,7 +12,7 @@ namespace SSI.StudentManagement.Web.UI
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            routes.MapPageRoute("HtmlRoute", "StudentMgmt", "~/public/Index.html");
+            routes.MapPageRoute("HtmlRoute", "StudentMgmt", "~/index.html");
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
