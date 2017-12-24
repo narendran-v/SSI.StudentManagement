@@ -13,8 +13,14 @@
     }
 
     function main() {
-        //Page specific code
-        console.log('Header loaded');
+        $('#logout_btn').click(onLogout);
+    }
+
+    function onLogout(){
+        $.event.trigger({
+            type:'change_page',
+            url:'login'
+        })
     }
     
 }());

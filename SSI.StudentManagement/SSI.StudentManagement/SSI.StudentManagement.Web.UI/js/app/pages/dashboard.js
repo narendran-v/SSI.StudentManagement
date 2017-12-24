@@ -14,6 +14,15 @@
     }
 
     function main() {
+        $.event.trigger({
+            type:'load_header',
+            url:'header'
+        });
+
+        $.event.trigger({
+            type:'load_footer',
+            url:'footer'
+        });
         //Page specific code
         console.log('help screen loaded');
 

@@ -1,0 +1,19 @@
+.header{
+    width: 100%;
+    background-color: white;
+    height: 100%;
+}
+
+.left-container{
+    float: left;
+}
+
+.right-container{
+    float: right;
+}
+
+.home{
+    background-image: url('../../img/icons8-home-50.png');
+    width: 30px;
+    height: 30px;
+}

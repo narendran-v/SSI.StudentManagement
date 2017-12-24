@@ -1,6 +1,6 @@
 "use strict";
 (function () {
-    var redirect = "home";
+    var redirect = "dashboard";
 
     $(document).on('change_page', onChangePage);
 
@@ -107,15 +107,15 @@
         url: redirect
     });
 
-    //Header load
-    $.event.trigger({
-        type: 'load_header',
-        url:'header'
-    });
+    // //Header load
+    // $.event.trigger({
+    //     type: 'load_header',
+    //     url:'header'
+    // });
 
-    //Footer load
-    $.event.trigger({
-        type: 'load_footer',
-        url: 'footer'
-    });
+    // //Footer load
+    // $.event.trigger({
+    //     type: 'load_footer',
+    //     url: 'footer'
+    // });
 }())
