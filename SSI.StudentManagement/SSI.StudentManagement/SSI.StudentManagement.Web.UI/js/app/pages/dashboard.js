@@ -24,7 +24,7 @@
             url:'footer'
         });
         //Page specific code
-        console.log('help screen loaded');
+        console.log(sourceData);
 
 
         //To unload the header and footer for some reason use this code

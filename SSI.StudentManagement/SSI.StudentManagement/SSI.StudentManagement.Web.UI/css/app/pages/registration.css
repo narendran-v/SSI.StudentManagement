@@ -1,0 +1,29 @@
+.panel{
+    max-width: 420px;
+    height: 400px;
+    background-color: #ced4d2;
+    margin-left: 50%;
+    margin-top: 70px;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    padding: 20px;
+    width: calc(100% - 20px);
+}
+.login-txt{
+    width: 100%;
+    margin-top: 10px;
+    height: 40px;
+    padding-left: 10px;
+    border-radius: 5px;
+}
+
+#back_btn{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#register_btn{
+    width: 100%;
+    margin-top: 40px;
+}

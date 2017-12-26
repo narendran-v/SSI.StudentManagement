@@ -31,7 +31,7 @@
                 if (s == 'success') {
                     $.event.trigger({
                         type: 'on_page_load',
-                        message: {}
+                        message: e.message
                     });
                 }
             })
