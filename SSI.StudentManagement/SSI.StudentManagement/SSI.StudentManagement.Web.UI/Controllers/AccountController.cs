@@ -337,7 +337,7 @@ namespace SSI.StudentManagement.Web.UI.Controllers
                 return GetErrorResult(result);
             }
 
-            return Ok();
+            return Content(System.Net.HttpStatusCode.OK, "Success");
         }
 
         // POST api/Account/RegisterExternal

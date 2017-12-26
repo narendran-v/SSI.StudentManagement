@@ -1,6 +1,6 @@
 "use strict";
 (function () {
-    var redirect = "dashboard";
+    var redirect = "login";
 
     $(document).on('change_page', onChangePage);
 
