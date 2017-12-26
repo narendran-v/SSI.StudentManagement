@@ -12,8 +12,9 @@
         sourceData = e.message;
 
 
-        $('#login_btn').on('click', onLogin);
-        $('#signup_btn').on('click', onSignup);
+        $('#register_btn').on('click', onRegistration);
+
+        $('#back_btn').on('click', onBack);
 
         main();
     }
@@ -28,8 +29,7 @@
         });
     }
 
-    function onLogin(){
-        
+    function onRegistration(){
         if($('#username_txt').val() == ''){
             $('#username_txt').shake();
             return;
@@ -39,39 +39,30 @@
             $('#password_txt').shake();
             return;
         }
-        var body = {
-            grant_type: 'password',
-            username: $('#username_txt').val(),
-            password: $('#password_txt').val()
-        };
-        // var jsonData = {};
-        // jsonData.grant_type ='password';
-        // jsonData.Username = $('#username_txt').val();
-        // jsonData.Password = $('#password_txt').val();
-        // console.log(jsonData);
+
+
+        if($('#password_txt').val() != $('#re_password_txt').val()){
+            $('#password_txt').shake();
+            $('#re_password_txt').shake();
+            return;
+        }
+
         $('#loader').removeClass('hide');
+
+        var jsonData = {};
+        jsonData.Email = $('#username_txt').val();
+        jsonData.Password = $('#password_txt').val();
+        jsonData.ConfirmPassword = $('#re_password_txt').val();
+
+        console.log(jsonData);
         $.ajax({
-            url:'Token',
-            type: 'POST',
-            dataType: 'json',
-            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-            data: body,
+            url:'api/Account/Register',
+            type:'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(jsonData),
             success: function(data){
-                $.event.trigger({
-                    type:'change_page',
-                    url:'dashboard',
-                    message:data
-                })
+                console.log(data);
             }
-        })
-
-        
-    }
-
-    function onSignup(){
-        $.event.trigger({
-            type:'change_page',
-            url:'registration'
         })
     }
 
@@ -80,6 +71,13 @@
         $.event.trigger({
             type:'unload_header',
             url:'header'
+        })
+    }
+
+    function onBack(){
+        $.event.trigger({
+            type:'change_page',
+            url:'login'
         })
     }
 
