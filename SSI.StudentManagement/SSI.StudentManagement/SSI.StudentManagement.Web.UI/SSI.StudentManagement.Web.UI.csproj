@@ -233,6 +233,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="css\app\pages\dashboard.css" />
     <Content Include="css\app\pages\login.css" />
+    <Content Include="css\app\pages\registration.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -250,6 +251,7 @@
     <Content Include="css\lib\reset.css" />
     <Content Include="html\pages\dashboard.html" />
     <Content Include="html\pages\login.html" />
+    <Content Include="html\pages\registration.html" />
     <Content Include="html\popups\info.html" />
     <Content Include="html\templates\footer.html" />
     <Content Include="html\templates\header.html" />
@@ -258,10 +260,12 @@
     <Content Include="img\icons8-home-50.png" />
     <Content Include="img\icons8-logout-rounded-up-50.png" />
     <Content Include="img\icons8-notification-50.png" />
+    <Content Include="img\logo.png" />
     <Content Include="index.html" />
     <Content Include="js\app\main.js" />
     <Content Include="js\app\pages\dashboard.js" />
     <Content Include="js\app\pages\login.js" />
+    <Content Include="js\app\pages\registration.js" />
     <Content Include="js\app\popups\info.js" />
     <Content Include="js\app\templates\footer.js" />
     <Content Include="js\app\templates\header.js" />

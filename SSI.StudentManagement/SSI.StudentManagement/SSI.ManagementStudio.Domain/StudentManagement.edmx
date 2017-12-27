@@ -1,0 +1,986 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StudentManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="StudentID" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="AddressID" Type="int" Nullable="false" />
+          <Property Name="AddresTypeID" Type="bigint" Nullable="false" />
+          <Property Name="DoorNo" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="AddressLine1" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="AddressLine2" Type="nvarchar" MaxLength="100" />
+          <Property Name="Locality" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CityID" Type="bigint" Nullable="false" />
+          <Property Name="StateID" Type="bigint" Nullable="false" />
+          <Property Name="PincodeID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AddressType">
+          <Key>
+            <PropertyRef Name="AddressTypeID" />
+          </Key>
+          <Property Name="AddressTypeID" Type="bigint" Nullable="false" />
+          <Property Name="AddresType" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'StudentManagement.dbo.CertificationStatus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CertificationStatus">
+          <Key>
+            <PropertyRef Name="CertificationStatusID" />
+            <PropertyRef Name="CertificationStatus" />
+          </Key>
+          <Property Name="CertificationStatusID" Type="bigint" Nullable="false" />
+          <Property Name="CertificationStatus" Type="nvarchar" MaxLength="35" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="bigint" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="bigint" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Completion">
+          <Key>
+            <PropertyRef Name="CompletionID" />
+          </Key>
+          <Property Name="CompletionID" Type="bigint" Nullable="false" />
+          <Property Name="CourseStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CertificationStatusID" Type="bigint" Nullable="false" />
+          <Property Name="FeedbackStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="PlacementRequired" Type="nvarchar" MaxLength="15" />
+          <Property Name="CertificateName" Type="nvarchar" MaxLength="30" />
+          <Property Name="CompletedOn" Type="date" />
+          <Property Name="PlacementID" Type="bigint" Nullable="false" />
+          <Property Name="RegistrationID" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="bigint" Nullable="false" />
+          <Property Name="CourseName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CourseStatus">
+          <Key>
+            <PropertyRef Name="CourseStatusID" />
+          </Key>
+          <Property Name="CourseStatusID" Type="bigint" Nullable="false" />
+          <Property Name="CourseStatus" Type="nvarchar" MaxLength="35" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Enquiry">
+          <Key>
+            <PropertyRef Name="EnquiryID" />
+          </Key>
+          <Property Name="EnquiryID" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="EnquiryType" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ReferenceID" Type="bigint" />
+          <Property Name="CourseID1" Type="bigint" Nullable="false" />
+          <Property Name="CourseID2" Type="bigint" />
+          <Property Name="CourseID3" Type="bigint" />
+          <Property Name="ExpectedCourseDuration" Type="int" />
+          <Property Name="CounsellorName" Type="nvarchar" MaxLength="30" />
+          <Property Name="ExpectedDOJ" Type="date" />
+          <Property Name="ConvenientTimings" Type="time" Precision="7" />
+          <Property Name="EnquiryStatusID" Type="bigint" />
+          <Property Name="AdditionalInfo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="StudentID" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EnquiryStatus">
+          <Key>
+            <PropertyRef Name="EnquiryStatusID" />
+          </Key>
+          <Property Name="EnquiryStatusID" Type="bigint" Nullable="false" />
+          <Property Name="EnquiryStatus" Type="nvarchar" MaxLength="35" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FollowUp">
+          <Key>
+            <PropertyRef Name="FollowUpID" />
+          </Key>
+          <Property Name="FollowUpID" Type="bigint" Nullable="false" />
+          <Property Name="FollowUpType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FollowUpDate" Type="datetime" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="100" />
+          <Property Name="FollowUpReferenceID" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+          </Key>
+          <Property Name="InvoiceID" Type="bigint" Nullable="false" />
+          <Property Name="InvoiceDate" Type="datetime" Nullable="false" />
+          <Property Name="AmountPaid" Type="int" Nullable="false" />
+          <Property Name="AmountTobePaid" Type="int" />
+          <Property Name="CollectedBy" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="PaymentStatusID" Type="bigint" Nullable="false" />
+          <Property Name="PaymentModeID" Type="bigint" Nullable="false" />
+          <Property Name="ReceiptNo" Type="nvarchar" MaxLength="30" />
+          <Property Name="ChequeNo" Type="nvarchar" MaxLength="30" />
+          <Property Name="ChequeDrawnFrom" Type="nvarchar" MaxLength="30" />
+          <Property Name="ChequeDate" Type="date" />
+          <Property Name="ChequeName" Type="nvarchar" MaxLength="30" />
+          <Property Name="RegistrationID" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentMode">
+          <Key>
+            <PropertyRef Name="PayenrtModeID" />
+          </Key>
+          <Property Name="PayenrtModeID" Type="bigint" Nullable="false" />
+          <Property Name="PayenrtMode" Type="nvarchar" MaxLength="35" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentScheme">
+          <Key>
+            <PropertyRef Name="RegistrationStatusID" />
+          </Key>
+          <Property Name="RegistrationStatusID" Type="bigint" Nullable="false" />
+          <Property Name="RegistrationStatus" Type="nvarchar" MaxLength="35" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentStatus">
+          <Key>
+            <PropertyRef Name="PaymentStatusID" />
+          </Key>
+          <Property Name="PaymentStatusID" Type="bigint" Nullable="false" />
+          <Property Name="PaymentStatus" Type="nvarchar" MaxLength="35" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pincode">
+          <Key>
+            <PropertyRef Name="PincodeID" />
+          </Key>
+          <Property Name="PincodeID" Type="bigint" Nullable="false" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Placement">
+          <Key>
+            <PropertyRef Name="PlacementID" />
+            <PropertyRef Name="PlacedOn" />
+          </Key>
+          <Property Name="PlacementID" Type="bigint" Nullable="false" />
+          <Property Name="CompanyID" Type="bigint" Nullable="false" />
+          <Property Name="PlacedOn" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Qualification">
+          <Key>
+            <PropertyRef Name="QualificationID" />
+          </Key>
+          <Property Name="QualificationID" Type="bigint" Nullable="false" />
+          <Property Name="Qualification" Type="nvarchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reference">
+          <Key>
+            <PropertyRef Name="ReferenceID" />
+          </Key>
+          <Property Name="ReferenceID" Type="bigint" Nullable="false" />
+          <Property Name="ReferenceName" Type="nvarchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Registration">
+          <Key>
+            <PropertyRef Name="RegistrationID" />
+          </Key>
+          <Property Name="RegistrationID" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="DateOfJoin" Type="date" Nullable="false" />
+          <Property Name="RegistrationStatusID" Type="bigint" />
+          <Property Name="CourseDuration" Type="int" />
+          <Property Name="Timings" Type="nvarchar" MaxLength="30" />
+          <Property Name="TrainerName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="TrackTypeID" Type="bigint" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="RegisteredBy" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="CompletionID" Type="bigint" Nullable="false" />
+          <Property Name="StudentID" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="EnquiryID" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="PaymentSchemeID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RegistrationStatus">
+          <Key>
+            <PropertyRef Name="RegistrationStatusID" />
+          </Key>
+          <Property Name="RegistrationStatusID" Type="bigint" Nullable="false" />
+          <Property Name="RegistrationStatus" Type="nvarchar" MaxLength="35" Nullable="false" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="bigint" Nullable="false" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="30" />
+          <Property Name="CertificationName" Type="nvarchar" MaxLength="30" />
+          <Property Name="DOB" Type="date" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="ContactNo" Type="bigint" Nullable="false" />
+          <Property Name="AlternateNo" Type="bigint" />
+          <Property Name="Email" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="QualificationID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <Association Name="Completion_Registration">
+          <End Role="Registration" Type="Self.Registration" Multiplicity="1" />
+          <End Role="Completion" Type="Self.Completion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Registration">
+              <PropertyRef Name="RegistrationID" />
+            </Principal>
+            <Dependent Role="Completion">
+              <PropertyRef Name="RegistrationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Enquiry_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Enquiry" Type="Self.Enquiry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Enquiry">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Invoice_Registration">
+          <End Role="Registration" Type="Self.Registration" Multiplicity="1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Registration">
+              <PropertyRef Name="RegistrationID" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="RegistrationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Registration_Enquiry">
+          <End Role="Enquiry" Type="Self.Enquiry" Multiplicity="1" />
+          <End Role="Registration" Type="Self.Registration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Enquiry">
+              <PropertyRef Name="EnquiryID" />
+            </Principal>
+            <Dependent Role="Registration">
+              <PropertyRef Name="EnquiryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Registration_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Registration" Type="Self.Registration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Registration">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StudentManagementModelStoreContainer">
+          <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AddressType" EntityType="Self.AddressType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Completion" EntityType="Self.Completion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CourseStatus" EntityType="Self.CourseStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Enquiry" EntityType="Self.Enquiry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EnquiryStatus" EntityType="Self.EnquiryStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FollowUp" EntityType="Self.FollowUp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentMode" EntityType="Self.PaymentMode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentScheme" EntityType="Self.PaymentScheme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentStatus" EntityType="Self.PaymentStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pincode" EntityType="Self.Pincode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Placement" EntityType="Self.Placement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Qualification" EntityType="Self.Qualification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reference" EntityType="Self.Reference" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Registration" EntityType="Self.Registration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegistrationStatus" EntityType="Self.RegistrationStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CertificationStatus" EntityType="Self.CertificationStatus" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CertificationStatus].[CertificationStatusID] AS [CertificationStatusID], 
+    [CertificationStatus].[CertificationStatus] AS [CertificationStatus]
+    FROM [dbo].[CertificationStatus] AS [CertificationStatus]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="Completion_Registration" Association="Self.Completion_Registration">
+            <End Role="Registration" EntitySet="Registration" />
+            <End Role="Completion" EntitySet="Completion" />
+          </AssociationSet>
+          <AssociationSet Name="Enquiry_Student" Association="Self.Enquiry_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Enquiry" EntitySet="Enquiry" />
+          </AssociationSet>
+          <AssociationSet Name="Invoice_Registration" Association="Self.Invoice_Registration">
+            <End Role="Registration" EntitySet="Registration" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="Registration_Enquiry" Association="Self.Registration_Enquiry">
+            <End Role="Enquiry" EntitySet="Enquiry" />
+            <End Role="Registration" EntitySet="Registration" />
+          </AssociationSet>
+          <AssociationSet Name="Registration_Student" Association="Self.Registration_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Registration" EntitySet="Registration" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StudentManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="StudentID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddressID" Type="Int32" Nullable="false" />
+          <Property Name="AddresTypeID" Type="Int64" Nullable="false" />
+          <Property Name="DoorNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddressLine1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddressLine2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Locality" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CityID" Type="Int64" Nullable="false" />
+          <Property Name="StateID" Type="Int64" Nullable="false" />
+          <Property Name="PincodeID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AddressType">
+          <Key>
+            <PropertyRef Name="AddressTypeID" />
+          </Key>
+          <Property Name="AddressTypeID" Type="Int64" Nullable="false" />
+          <Property Name="AddresType" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="Int64" Nullable="false" />
+          <Property Name="City1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="Int64" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Completion">
+          <Key>
+            <PropertyRef Name="CompletionID" />
+          </Key>
+          <Property Name="CompletionID" Type="Int64" Nullable="false" />
+          <Property Name="CourseStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CertificationStatusID" Type="Int64" Nullable="false" />
+          <Property Name="FeedbackStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PlacementRequired" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CertificateName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CompletedOn" Type="DateTime" Precision="0" />
+          <Property Name="PlacementID" Type="Int64" Nullable="false" />
+          <Property Name="RegistrationID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Registration" Relationship="Self.Completion_Registration" FromRole="Completion" ToRole="Registration" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="Int64" Nullable="false" />
+          <Property Name="CourseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CourseStatu">
+          <Key>
+            <PropertyRef Name="CourseStatusID" />
+          </Key>
+          <Property Name="CourseStatusID" Type="Int64" Nullable="false" />
+          <Property Name="CourseStatus" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Enquiry">
+          <Key>
+            <PropertyRef Name="EnquiryID" />
+          </Key>
+          <Property Name="EnquiryID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EnquiryType" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReferenceID" Type="Int64" />
+          <Property Name="CourseID1" Type="Int64" Nullable="false" />
+          <Property Name="CourseID2" Type="Int64" />
+          <Property Name="CourseID3" Type="Int64" />
+          <Property Name="ExpectedCourseDuration" Type="Int32" />
+          <Property Name="CounsellorName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ExpectedDOJ" Type="DateTime" Precision="0" />
+          <Property Name="ConvenientTimings" Type="Time" Precision="7" />
+          <Property Name="EnquiryStatusID" Type="Int64" />
+          <Property Name="AdditionalInfo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StudentID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Student" Relationship="Self.Enquiry_Student" FromRole="Enquiry" ToRole="Student" />
+          <NavigationProperty Name="Registrations" Relationship="Self.Registration_Enquiry" FromRole="Enquiry" ToRole="Registration" />
+        </EntityType>
+        <EntityType Name="EnquiryStatu">
+          <Key>
+            <PropertyRef Name="EnquiryStatusID" />
+          </Key>
+          <Property Name="EnquiryStatusID" Type="Int64" Nullable="false" />
+          <Property Name="EnquiryStatus" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FollowUp">
+          <Key>
+            <PropertyRef Name="FollowUpID" />
+          </Key>
+          <Property Name="FollowUpID" Type="Int64" Nullable="false" />
+          <Property Name="FollowUpType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FollowUpDate" Type="DateTime" Precision="3" />
+          <Property Name="Comment" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FollowUpReferenceID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+          </Key>
+          <Property Name="InvoiceID" Type="Int64" Nullable="false" />
+          <Property Name="InvoiceDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AmountPaid" Type="Int32" Nullable="false" />
+          <Property Name="AmountTobePaid" Type="Int32" />
+          <Property Name="CollectedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PaymentStatusID" Type="Int64" Nullable="false" />
+          <Property Name="PaymentModeID" Type="Int64" Nullable="false" />
+          <Property Name="ReceiptNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ChequeNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ChequeDrawnFrom" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ChequeDate" Type="DateTime" Precision="0" />
+          <Property Name="ChequeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="RegistrationID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Registration" Relationship="Self.Invoice_Registration" FromRole="Invoice" ToRole="Registration" />
+        </EntityType>
+        <EntityType Name="PaymentMode">
+          <Key>
+            <PropertyRef Name="PayenrtModeID" />
+          </Key>
+          <Property Name="PayenrtModeID" Type="Int64" Nullable="false" />
+          <Property Name="PayenrtMode" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentScheme">
+          <Key>
+            <PropertyRef Name="RegistrationStatusID" />
+          </Key>
+          <Property Name="RegistrationStatusID" Type="Int64" Nullable="false" />
+          <Property Name="RegistrationStatus" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentStatu">
+          <Key>
+            <PropertyRef Name="PaymentStatusID" />
+          </Key>
+          <Property Name="PaymentStatusID" Type="Int64" Nullable="false" />
+          <Property Name="PaymentStatus" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pincode">
+          <Key>
+            <PropertyRef Name="PincodeID" />
+          </Key>
+          <Property Name="PincodeID" Type="Int64" Nullable="false" />
+          <Property Name="PostalCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Placement">
+          <Key>
+            <PropertyRef Name="PlacementID" />
+            <PropertyRef Name="PlacedOn" />
+          </Key>
+          <Property Name="PlacementID" Type="Int64" Nullable="false" />
+          <Property Name="CompanyID" Type="Int64" Nullable="false" />
+          <Property Name="PlacedOn" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Qualification">
+          <Key>
+            <PropertyRef Name="QualificationID" />
+          </Key>
+          <Property Name="QualificationID" Type="Int64" Nullable="false" />
+          <Property Name="Qualification1" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reference">
+          <Key>
+            <PropertyRef Name="ReferenceID" />
+          </Key>
+          <Property Name="ReferenceID" Type="Int64" Nullable="false" />
+          <Property Name="ReferenceName" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Registration">
+          <Key>
+            <PropertyRef Name="RegistrationID" />
+          </Key>
+          <Property Name="RegistrationID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateOfJoin" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="RegistrationStatusID" Type="Int64" />
+          <Property Name="CourseDuration" Type="Int32" />
+          <Property Name="Timings" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="TrainerName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TrackTypeID" Type="Int64" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="RegisteredBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CompletionID" Type="Int64" Nullable="false" />
+          <Property Name="StudentID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EnquiryID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PaymentSchemeID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Completions" Relationship="Self.Completion_Registration" FromRole="Registration" ToRole="Completion" />
+          <NavigationProperty Name="Enquiry" Relationship="Self.Registration_Enquiry" FromRole="Registration" ToRole="Enquiry" />
+          <NavigationProperty Name="Invoices" Relationship="Self.Invoice_Registration" FromRole="Registration" ToRole="Invoice" />
+          <NavigationProperty Name="Student" Relationship="Self.Registration_Student" FromRole="Registration" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="RegistrationStatu">
+          <Key>
+            <PropertyRef Name="RegistrationStatusID" />
+          </Key>
+          <Property Name="RegistrationStatusID" Type="Int64" Nullable="false" />
+          <Property Name="RegistrationStatus" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="Int64" Nullable="false" />
+          <Property Name="State1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CertificationName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="ContactNo" Type="Int64" Nullable="false" />
+          <Property Name="AlternateNo" Type="Int64" />
+          <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="QualificationID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Enquiries" Relationship="Self.Enquiry_Student" FromRole="Student" ToRole="Enquiry" />
+          <NavigationProperty Name="Registrations" Relationship="Self.Registration_Student" FromRole="Student" ToRole="Registration" />
+        </EntityType>
+        <EntityType Name="CertificationStatu">
+          <Key>
+            <PropertyRef Name="CertificationStatusID" />
+            <PropertyRef Name="CertificationStatus" />
+          </Key>
+          <Property Name="CertificationStatusID" Type="Int64" Nullable="false" />
+          <Property Name="CertificationStatus" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="Completion_Registration">
+          <End Role="Registration" Type="Self.Registration" Multiplicity="1" />
+          <End Role="Completion" Type="Self.Completion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Registration">
+              <PropertyRef Name="RegistrationID" />
+            </Principal>
+            <Dependent Role="Completion">
+              <PropertyRef Name="RegistrationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Enquiry_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Enquiry" Type="Self.Enquiry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Enquiry">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Registration_Enquiry">
+          <End Role="Enquiry" Type="Self.Enquiry" Multiplicity="1" />
+          <End Role="Registration" Type="Self.Registration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Enquiry">
+              <PropertyRef Name="EnquiryID" />
+            </Principal>
+            <Dependent Role="Registration">
+              <PropertyRef Name="EnquiryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Invoice_Registration">
+          <End Role="Registration" Type="Self.Registration" Multiplicity="1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Registration">
+              <PropertyRef Name="RegistrationID" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="RegistrationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Registration_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Registration" Type="Self.Registration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Registration">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StudentManagementEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="Self.Address" />
+          <EntitySet Name="AddressTypes" EntityType="Self.AddressType" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Companies" EntityType="Self.Company" />
+          <EntitySet Name="Completions" EntityType="Self.Completion" />
+          <EntitySet Name="Courses" EntityType="Self.Course" />
+          <EntitySet Name="CourseStatus" EntityType="Self.CourseStatu" />
+          <EntitySet Name="Enquiries" EntityType="Self.Enquiry" />
+          <EntitySet Name="EnquiryStatus" EntityType="Self.EnquiryStatu" />
+          <EntitySet Name="FollowUps" EntityType="Self.FollowUp" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+          <EntitySet Name="PaymentModes" EntityType="Self.PaymentMode" />
+          <EntitySet Name="PaymentSchemes" EntityType="Self.PaymentScheme" />
+          <EntitySet Name="PaymentStatus" EntityType="Self.PaymentStatu" />
+          <EntitySet Name="Pincodes" EntityType="Self.Pincode" />
+          <EntitySet Name="Placements" EntityType="Self.Placement" />
+          <EntitySet Name="Qualifications" EntityType="Self.Qualification" />
+          <EntitySet Name="References" EntityType="Self.Reference" />
+          <EntitySet Name="Registrations" EntityType="Self.Registration" />
+          <EntitySet Name="RegistrationStatus" EntityType="Self.RegistrationStatu" />
+          <EntitySet Name="States" EntityType="Self.State" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="CertificationStatus" EntityType="Self.CertificationStatu" />
+          <AssociationSet Name="Completion_Registration" Association="Self.Completion_Registration">
+            <End Role="Registration" EntitySet="Registrations" />
+            <End Role="Completion" EntitySet="Completions" />
+          </AssociationSet>
+          <AssociationSet Name="Enquiry_Student" Association="Self.Enquiry_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Enquiry" EntitySet="Enquiries" />
+          </AssociationSet>
+          <AssociationSet Name="Registration_Enquiry" Association="Self.Registration_Enquiry">
+            <End Role="Enquiry" EntitySet="Enquiries" />
+            <End Role="Registration" EntitySet="Registrations" />
+          </AssociationSet>
+          <AssociationSet Name="Invoice_Registration" Association="Self.Invoice_Registration">
+            <End Role="Registration" EntitySet="Registrations" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="Registration_Student" Association="Self.Registration_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Registration" EntitySet="Registrations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StudentManagementModelStoreContainer" CdmEntityContainer="StudentManagementEntities">
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="StudentManagementModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="AddresTypeID" ColumnName="AddresTypeID" />
+                <ScalarProperty Name="DoorNo" ColumnName="DoorNo" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="Locality" ColumnName="Locality" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="PincodeID" ColumnName="PincodeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AddressTypes">
+            <EntityTypeMapping TypeName="StudentManagementModel.AddressType">
+              <MappingFragment StoreEntitySet="AddressType">
+                <ScalarProperty Name="AddressTypeID" ColumnName="AddressTypeID" />
+                <ScalarProperty Name="AddresType" ColumnName="AddresType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="StudentManagementModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="City1" ColumnName="City" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="StudentManagementModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Completions">
+            <EntityTypeMapping TypeName="StudentManagementModel.Completion">
+              <MappingFragment StoreEntitySet="Completion">
+                <ScalarProperty Name="CompletionID" ColumnName="CompletionID" />
+                <ScalarProperty Name="CourseStatus" ColumnName="CourseStatus" />
+                <ScalarProperty Name="CertificationStatusID" ColumnName="CertificationStatusID" />
+                <ScalarProperty Name="FeedbackStatus" ColumnName="FeedbackStatus" />
+                <ScalarProperty Name="PlacementRequired" ColumnName="PlacementRequired" />
+                <ScalarProperty Name="CertificateName" ColumnName="CertificateName" />
+                <ScalarProperty Name="CompletedOn" ColumnName="CompletedOn" />
+                <ScalarProperty Name="PlacementID" ColumnName="PlacementID" />
+                <ScalarProperty Name="RegistrationID" ColumnName="RegistrationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="StudentManagementModel.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseStatus">
+            <EntityTypeMapping TypeName="StudentManagementModel.CourseStatu">
+              <MappingFragment StoreEntitySet="CourseStatus">
+                <ScalarProperty Name="CourseStatusID" ColumnName="CourseStatusID" />
+                <ScalarProperty Name="CourseStatus" ColumnName="CourseStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Enquiries">
+            <EntityTypeMapping TypeName="StudentManagementModel.Enquiry">
+              <MappingFragment StoreEntitySet="Enquiry">
+                <ScalarProperty Name="EnquiryID" ColumnName="EnquiryID" />
+                <ScalarProperty Name="EnquiryType" ColumnName="EnquiryType" />
+                <ScalarProperty Name="ReferenceID" ColumnName="ReferenceID" />
+                <ScalarProperty Name="CourseID1" ColumnName="CourseID1" />
+                <ScalarProperty Name="CourseID2" ColumnName="CourseID2" />
+                <ScalarProperty Name="CourseID3" ColumnName="CourseID3" />
+                <ScalarProperty Name="ExpectedCourseDuration" ColumnName="ExpectedCourseDuration" />
+                <ScalarProperty Name="CounsellorName" ColumnName="CounsellorName" />
+                <ScalarProperty Name="ExpectedDOJ" ColumnName="ExpectedDOJ" />
+                <ScalarProperty Name="ConvenientTimings" ColumnName="ConvenientTimings" />
+                <ScalarProperty Name="EnquiryStatusID" ColumnName="EnquiryStatusID" />
+                <ScalarProperty Name="AdditionalInfo" ColumnName="AdditionalInfo" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EnquiryStatus">
+            <EntityTypeMapping TypeName="StudentManagementModel.EnquiryStatu">
+              <MappingFragment StoreEntitySet="EnquiryStatus">
+                <ScalarProperty Name="EnquiryStatusID" ColumnName="EnquiryStatusID" />
+                <ScalarProperty Name="EnquiryStatus" ColumnName="EnquiryStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FollowUps">
+            <EntityTypeMapping TypeName="StudentManagementModel.FollowUp">
+              <MappingFragment StoreEntitySet="FollowUp">
+                <ScalarProperty Name="FollowUpID" ColumnName="FollowUpID" />
+                <ScalarProperty Name="FollowUpType" ColumnName="FollowUpType" />
+                <ScalarProperty Name="FollowUpDate" ColumnName="FollowUpDate" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="FollowUpReferenceID" ColumnName="FollowUpReferenceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoices">
+            <EntityTypeMapping TypeName="StudentManagementModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoice">
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+                <ScalarProperty Name="AmountTobePaid" ColumnName="AmountTobePaid" />
+                <ScalarProperty Name="CollectedBy" ColumnName="CollectedBy" />
+                <ScalarProperty Name="PaymentStatusID" ColumnName="PaymentStatusID" />
+                <ScalarProperty Name="PaymentModeID" ColumnName="PaymentModeID" />
+                <ScalarProperty Name="ReceiptNo" ColumnName="ReceiptNo" />
+                <ScalarProperty Name="ChequeNo" ColumnName="ChequeNo" />
+                <ScalarProperty Name="ChequeDrawnFrom" ColumnName="ChequeDrawnFrom" />
+                <ScalarProperty Name="ChequeDate" ColumnName="ChequeDate" />
+                <ScalarProperty Name="ChequeName" ColumnName="ChequeName" />
+                <ScalarProperty Name="RegistrationID" ColumnName="RegistrationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentModes">
+            <EntityTypeMapping TypeName="StudentManagementModel.PaymentMode">
+              <MappingFragment StoreEntitySet="PaymentMode">
+                <ScalarProperty Name="PayenrtModeID" ColumnName="PayenrtModeID" />
+                <ScalarProperty Name="PayenrtMode" ColumnName="PayenrtMode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentSchemes">
+            <EntityTypeMapping TypeName="StudentManagementModel.PaymentScheme">
+              <MappingFragment StoreEntitySet="PaymentScheme">
+                <ScalarProperty Name="RegistrationStatusID" ColumnName="RegistrationStatusID" />
+                <ScalarProperty Name="RegistrationStatus" ColumnName="RegistrationStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentStatus">
+            <EntityTypeMapping TypeName="StudentManagementModel.PaymentStatu">
+              <MappingFragment StoreEntitySet="PaymentStatus">
+                <ScalarProperty Name="PaymentStatusID" ColumnName="PaymentStatusID" />
+                <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pincodes">
+            <EntityTypeMapping TypeName="StudentManagementModel.Pincode">
+              <MappingFragment StoreEntitySet="Pincode">
+                <ScalarProperty Name="PincodeID" ColumnName="PincodeID" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Placements">
+            <EntityTypeMapping TypeName="StudentManagementModel.Placement">
+              <MappingFragment StoreEntitySet="Placement">
+                <ScalarProperty Name="PlacementID" ColumnName="PlacementID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="PlacedOn" ColumnName="PlacedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Qualifications">
+            <EntityTypeMapping TypeName="StudentManagementModel.Qualification">
+              <MappingFragment StoreEntitySet="Qualification">
+                <ScalarProperty Name="QualificationID" ColumnName="QualificationID" />
+                <ScalarProperty Name="Qualification1" ColumnName="Qualification" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="References">
+            <EntityTypeMapping TypeName="StudentManagementModel.Reference">
+              <MappingFragment StoreEntitySet="Reference">
+                <ScalarProperty Name="ReferenceID" ColumnName="ReferenceID" />
+                <ScalarProperty Name="ReferenceName" ColumnName="ReferenceName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Registrations">
+            <EntityTypeMapping TypeName="StudentManagementModel.Registration">
+              <MappingFragment StoreEntitySet="Registration">
+                <ScalarProperty Name="RegistrationID" ColumnName="RegistrationID" />
+                <ScalarProperty Name="DateOfJoin" ColumnName="DateOfJoin" />
+                <ScalarProperty Name="RegistrationStatusID" ColumnName="RegistrationStatusID" />
+                <ScalarProperty Name="CourseDuration" ColumnName="CourseDuration" />
+                <ScalarProperty Name="Timings" ColumnName="Timings" />
+                <ScalarProperty Name="TrainerName" ColumnName="TrainerName" />
+                <ScalarProperty Name="TrackTypeID" ColumnName="TrackTypeID" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="RegisteredBy" ColumnName="RegisteredBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CompletionID" ColumnName="CompletionID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="EnquiryID" ColumnName="EnquiryID" />
+                <ScalarProperty Name="PaymentSchemeID" ColumnName="PaymentSchemeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegistrationStatus">
+            <EntityTypeMapping TypeName="StudentManagementModel.RegistrationStatu">
+              <MappingFragment StoreEntitySet="RegistrationStatus">
+                <ScalarProperty Name="RegistrationStatusID" ColumnName="RegistrationStatusID" />
+                <ScalarProperty Name="RegistrationStatus" ColumnName="RegistrationStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="StudentManagementModel.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="State1" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="StudentManagementModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="CertificationName" ColumnName="CertificationName" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="AlternateNo" ColumnName="AlternateNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="QualificationID" ColumnName="QualificationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CertificationStatus">
+            <EntityTypeMapping TypeName="StudentManagementModel.CertificationStatu">
+              <MappingFragment StoreEntitySet="CertificationStatus">
+                <ScalarProperty Name="CertificationStatusID" ColumnName="CertificationStatusID" />
+                <ScalarProperty Name="CertificationStatus" ColumnName="CertificationStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -7,11 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSI.StudentManagement.Web.U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSI.StudentManagement.Web.UI.Tests", "SSI.StudentManagement\SSI.StudentManagement.Web.UI.Tests\SSI.StudentManagement.Web.UI.Tests.csproj", "{5F300D2B-FFA6-4679-AA87-AEC1EEDD6806}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSI.ManagementStudio.Domain", "SSI.StudentManagement\SSI.ManagementStudio.Domain\SSI.ManagementStudio.Domain.csproj", "{9F214539-6E6B-4FD9-A175-C10DE6932E17}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSI.StudentManagement.Domain", "SSI.StudentManagement\SSI.ManagementStudio.Domain\SSI.StudentManagement.Domain.csproj", "{9F214539-6E6B-4FD9-A175-C10DE6932E17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSI.ManagementStudio.Infrastructure", "SSI.StudentManagement\SSI.ManagementStudio.Infrastructure\SSI.ManagementStudio.Infrastructure.csproj", "{D011E75F-DDF1-48F7-8AD6-A6AD0C340622}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSI.StudentManagement.Infrastructure", "SSI.StudentManagement\SSI.ManagementStudio.Infrastructure\SSI.StudentManagement.Infrastructure.csproj", "{D011E75F-DDF1-48F7-8AD6-A6AD0C340622}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSI.ManagementStudio.Common", "SSI.StudentManagement\SSI.ManagementStudio.Common\SSI.ManagementStudio.Common.csproj", "{38F6CB44-D8E1-4183-9B8E-7779E5A2E2ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSI.StudentManagement.Common", "SSI.StudentManagement\SSI.ManagementStudio.Common\SSI.StudentManagement.Common.csproj", "{38F6CB44-D8E1-4183-9B8E-7779E5A2E2ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
