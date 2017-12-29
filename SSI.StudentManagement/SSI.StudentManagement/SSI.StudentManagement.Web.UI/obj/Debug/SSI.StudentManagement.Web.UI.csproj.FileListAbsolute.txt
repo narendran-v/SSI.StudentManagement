@@ -154,3 +154,5 @@ E:\Labs\Git\SSI.StudentManagement\SSI.StudentManagement\SSI.StudentManagement\SS
 E:\Labs\Git\SSI.StudentManagement\SSI.StudentManagement\SSI.StudentManagement\SSI.StudentManagement.Web.UI\bin\Microsoft.Owin.Security.Google.xml
 E:\Labs\Git\SSI.StudentManagement\SSI.StudentManagement\SSI.StudentManagement\SSI.StudentManagement.Web.UI\bin\Microsoft.Owin.Security.Twitter.xml
 E:\Labs\Git\SSI.StudentManagement\SSI.StudentManagement\SSI.StudentManagement\SSI.StudentManagement.Web.UI\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Dotnet\Labs\ssi\SSI.StudentManagement\SSI.StudentManagement\SSI.StudentManagement.Web.UI\bin\SSI.StudentManagement.Domain.dll
+D:\Dotnet\Labs\ssi\SSI.StudentManagement\SSI.StudentManagement\SSI.StudentManagement.Web.UI\bin\SSI.StudentManagement.Domain.pdb
