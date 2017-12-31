@@ -26,7 +26,7 @@ namespace SSI.StudentManagement.Web.UI.Controllers
         [ResponseType(typeof(IEnumerable<EnquiryModel>))]
         public IHttpActionResult Get()
         {
-            //return (IHttpActionResult)this.Ok<IEnumerable<EnquiryModel>>((IEnumerable<Enquiry>)this._domainContext.Enquiries);
+            //return (IHttpActionResult)this.Ok<IEnumerable<EnquiryModel>>((IEnumerable<Enquiry>)this._domainContext.Enquiries.ToList().Select<Enquiry, EnquiryModel>((Func<Enquiry, EnquiryModel>)(x => factory.Create(x))));
             return (IHttpActionResult)this.Ok<IEnumerable<EnquiryModel>>(list);
         }
 

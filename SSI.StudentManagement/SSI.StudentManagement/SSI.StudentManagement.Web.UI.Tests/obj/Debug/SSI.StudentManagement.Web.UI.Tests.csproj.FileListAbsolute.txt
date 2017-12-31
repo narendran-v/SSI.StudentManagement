@@ -123,3 +123,5 @@ D:\Dotnet\Labs\ssi\SSI.StudentManagement\SSI.StudentManagement\SSI.StudentManage
 D:\Dotnet\Labs\ssi\SSI.StudentManagement\SSI.StudentManagement\SSI.StudentManagement.Web.UI.Tests\obj\Debug\SSI.StudentManagement.Web.UI.Tests.csprojResolveAssemblyReference.cache
 D:\Dotnet\Labs\ssi\SSI.StudentManagement\SSI.StudentManagement\SSI.StudentManagement.Web.UI.Tests\obj\Debug\SSI.StudentManagement.Web.UI.Tests.dll
 D:\Dotnet\Labs\ssi\SSI.StudentManagement\SSI.StudentManagement\SSI.StudentManagement.Web.UI.Tests\obj\Debug\SSI.StudentManagement.Web.UI.Tests.pdb
+D:\Dotnet\Labs\ssi\SSI.StudentManagement\SSI.StudentManagement\SSI.StudentManagement.Web.UI.Tests\bin\Debug\SSI.StudentManagement.Domain.dll
+D:\Dotnet\Labs\ssi\SSI.StudentManagement\SSI.StudentManagement\SSI.StudentManagement.Web.UI.Tests\bin\Debug\SSI.StudentManagement.Domain.pdb
